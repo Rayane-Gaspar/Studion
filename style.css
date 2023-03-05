@@ -3,9 +3,10 @@
   box-sizing: border-box; /* permite que o elemento inclua o preenchimento e a borda na largura e altura total definida para ele. Sem essa propriedade o tamanho real seria diferente do tamanho definido*/
 }
 :root { /* configuração global do site */
-  --color-primary:#ffc500; /*cor que vai sr bastante usada, foi criado uma variavel para nao precisar colocar o rgb da cor sempre q for usar, assim poe so o nome da variavel */
   font-family:'Montserrat', sans-serif; /* fonte a ser usada no site */
-  font-size:16 px; /* tamanho padrao da fonte */
+  font-size:16px; /* tamanho padrao da fonte */
+  --color-primary:#ffc500; /*cor que vai sr bastante usada, foi criado uma variavel para nao precisar colocar o rgb da cor sempre q for usar, assim poe so o nome da variavel */
+  --default-padding: 1rem;
 }
 
 body{ /* corpo da pagina */
@@ -15,20 +16,22 @@ body{ /* corpo da pagina */
 ul{ /* listas*/
   display: flex; 
   list-style:none; /* retira a estilização padrao das listas para estilizar como quiser */
-  padding: 0; /* retira o pading padrao */
+  padding-left: 0; /* retira o pading padrao */
 }
 .navbar{ /* estiliza o cabeçalho da pagina */
   position: fixed; /*mantem fixo, nao vai para cima junto com o resto da pagina quando rola  o mouse*/
+  z-index: 1;
   display: grid; /* preciso estudar o grid para entender melhor e estudar o flex-box tbm*/
   grid-template-columns: 1fr 9fr; 
   align-items: center;
   top: 0;
   left:0;
+
   width: 100vw;
   height: 7.75rem;
   padding: 0 1rem;
   background-color: #000;
-  color:white
+  color:#fff;
 }
 .navbar__links{ /* coloca alinhado ao final da pagina- a direita- os links para outras paginas */
   justify-self: end; /*justificado a direito. pesquisar diferenca de right top*/
@@ -36,13 +39,12 @@ ul{ /* listas*/
 
 .navbar__links li{ /*estiliza os links em sí */
   font-size: 0.875rem; /* para saber o rem, divide o tamanho em pixels por 16*/
-  text-transform: uppercase;
   margin-right:3rem;
-  padding-left:0;
-  
+  text-transform: uppercase;
 }
 .navbar__links a {/* estilizar a cor dos links */
-  color:white; /*cor do texto */
+  font-weight: 300;
+  color:#fff; /*cor do texto */
   text-decoration: none;/*texto sem decoracao*/
 }
 
@@ -51,24 +53,37 @@ ul{ /* listas*/
 
 }
 .logo--studion{ /* vai estilizar o logo  STUDION*/
-font-size: 2.375 rem; /* 2.375*16= 38 px */
+font-size: 2.375rem; /* 2.375*16= 38 px */
 font-weight: 900; /*peso da  fonte */
 line-height: 1ch; /* define a distancia entre uma linha e outra e o ch é relativa ao tamanho da altura do caractere 0 da fonte */
 text-transform: uppercase; /*deixa o texto todo em caixa alta  */
 text-align: right; /* alinha tudo a direita para nao desconfigurar o alinhamento conforme troca a resolluçao da tela */
 }
 .logo--studion_subtitle{ /*vai estilizar a palavra Eventos*/
-  font-size: 0.625rem; /* 14 px */
+  font-size: 0.875rem; /* 14 px */
   font-weight: 300; /* peso da fonte */
   /*text-align: right;  alinhar o texto a direita */
-  float: right; /* vai fazer o texto flutuar a direita. força o texto quadndo o text-align nao funciona*/
 }
 .copy--primary{ /* vai estilizar o span ON*/
 color: var(--color-primary);
 }
-header{ /*cabeçalho */
-  width: 1680px; /*largura*/
-  height: 700px; /*altura*/
-  background-color: #000000 /*cor de fundo*/
-}
+#slider{
+background-color:#000;
+color:#fff;
 
+}
+.slide{
+  position: relative;
+  height: calc(100vh - 7.75rem);
+}
+.slide_background-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.slide__copy{
+  position: absolute;
+  top: 0;
+  left: 50vw;
+}
